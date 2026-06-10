@@ -36,9 +36,4 @@ public class ProductController {
         productRepository.deleteById(id);
         return "Product Deleted Successfully";
     }
-
-    @GetMapping("/products-page")
-    public String productsPage() {
-        return "products";
-    }
 }

@@ -1,31 +1,32 @@
 package com.ecommerce.ecommerce_analytics.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
 @Entity
-
+@Table(name = "products")
 public class Product {
-    
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
     private String name;
-    private String category;
     private Double price;
-    private Integer stock;
+    private Integer quantity;
+    private String category;
 
     public Product() {
     }
 
-    public Long getId() {
-        return id;
+    public Product(String name, Double price, Integer quantity, String category) {
+        this.name = name;
+        this.price = price;
+        this.quantity = quantity;
+        this.category = category;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public Long getId() {
+        return id;
     }
 
     public String getName() {
@@ -36,14 +37,6 @@ public class Product {
         this.name = name;
     }
 
-    public String getCategory() {
-        return category;
-    }
-
-    public void setCategory(String category) {
-        this.category = category;
-    }
-
     public Double getPrice() {
         return price;
     }
@@ -52,11 +45,19 @@ public class Product {
         this.price = price;
     }
 
-    public Integer getStock() {
-        return stock;
+    public Integer getQuantity() {
+        return quantity;
     }
 
-    public void setStock(Integer stock) {
-        this.stock = stock;
+    public void setQuantity(Integer quantity) {
+        this.quantity = quantity;
+    }
+
+    public String getCategory() {
+        return category;
+    }
+
+    public void setCategory(String category) {
+        this.category = category;
     }
 }
