@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>E-Commerce Analytics Dashboard</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 40px;
+        }
+
+        .card {
+            border: 1px solid #ddd;
+            padding: 20px;
+            margin: 15px 0;
+            border-radius: 10px;
+            width: 300px;
+        }
+    </style>
+</head>
+<body>
+
+<h1>E-Commerce Analytics Dashboard</h1>
+
+<div class="card">
+    <h2>Total Products: <span id="products">0</span></h2>
+</div>
+
+<div class="card">
+    <h2>Total Sales: <span id="sales">0</span></h2>
+</div>
+
+<div class="card">
+    <h2>Total Revenue: ₹<span id="revenue">0</span></h2>
+</div>
+
+<script>
+fetch('/dashboard')
+    .then(response => response.json())
+    .then(data => {
+        document.getElementById('products').innerText = data.totalProducts;
+        document.getElementById('sales').innerText = data.totalSales;
+        document.getElementById('revenue').innerText = data.totalRevenue;
+    })
+    .catch(error => console.error(error));
+</script>
+
+</body>
+</html>
